@@ -29,7 +29,7 @@ Note- All AWS services are not avalaible in all regions.
 - They are interconnected with other Availability Zones by using high-speed private networking
 - They are designed for fault isolation
 - You choose your Availability Zones but AWS recommends replicating data and resources across Availability Zones for resiliency.
- <image src= "C:\Users\User\Desktop\Repo\AWS_Cloud_Foundations\Images\Availability Zones.jpgs">
+ <image src= "C:\Users\User\Desktop\Repo\AWS_Cloud_Foundations\Images\Availability Zones.jpg">
 
 
 ### **AWS Data Centers**(3 in each availability zone)
