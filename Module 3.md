@@ -29,18 +29,29 @@ Note- All AWS services are not avalaible in all regions.
 - They are interconnected with other Availability Zones by using high-speed private networking
 - They are designed for fault isolation
 - You choose your Availability Zones but AWS recommends replicating data and resources across Availability Zones for resiliency.
- <image src= "C:\Users\User\Desktop\Repo\AWS_Cloud_Foundations\Images" >
+ <image src= "C:\Users\User\Desktop\Repo\AWS_Cloud_Foundations\Images\Availability Zones.jpgs">
 
-### **AWS Data Centers**
 
-- AWS data centers are designed for security. Each data center has redundant power, networking, and connectivity, and is housed in a separate facility.
+### **AWS Data Centers**(3 in each availability zone)
+
+- AWS data centers are designed for security. 
+- Each data center has redundant power
+- Networking, and connectivity, and is housed in a separate facility.
 - Data centers are where the data resides and data processing occurs. A data center typically has 50,000 to 80,000 physical servers
+- In case of failure of data center traffic is moved from efeected area to different location automatically.
 
- AWS provides a global network of 187 Points of Presence locations:
-
+ #### **Point of Presence**(Present in around 30 countries)
+- AWS provides a global network of 187 Points of Presence locations:
 - Consists of 176 edge locations - where end users access services located at AWS
 - 11 Regional edge caches - cache copies of your infrequent content close to your users
 - Used with **Amazon CloudFront** -  a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, all within a developer-friendly environment.
+- Regional Edge caches used for content with infrequent access.
+
+**CLoud Front** Is a content delivery network(CDN) used to distribute content to end user to reduce latency.
+
+**Amazon Route 53** Is a domain name system(DNS) service where request going to either one of these services will be routed to nearest edge location automatically in order to lower latency.
+- To reduce latency and increase availability and customer experince many AWS services are used. Like Amazon CloudFront, Amazon route53, AWS Shield and AWS web application API.
+- Regional Edge caches are used by default with Amazon Cloud Front.
 
 AWS Infrastructure Features:
 
@@ -61,11 +72,6 @@ AWS Infrastructure Features:
 ### **Service Categories**
 
 23 different product or service categories, and each category consists of one or more services. The course covers the most common categories and the ones likely to be on the foundations exam.
-
-
-
-
-
 
 
 ### **Service Categories**
