@@ -63,11 +63,53 @@ AWS Infrastructure Features:
 
 ## Section 2: AWS Services and Service Category Overview
 
+### **Infrasture services**
+- Regions
+- Availability zones
+- Point of Presence, Edge Locations
+
+These services provide a broad foundation services
+
 ### **Foundation Services**
 
 - Compute
 - Networking
 - Storage
+
+### Plateform services
+- Database 
+    - Relational
+    - NoSQl
+    - Caching
+
+- Analytics
+    - Cluster Computing 
+    - Real-time Data work flows 
+    - Data warehouse
+
+- Application Services
+    - Queuing
+    - Orchestration
+    - App Streaming
+    - Transcoding 
+    - Email Search
+
+- Deploment and Management
+    -  Containers
+    - DevOps tools
+    - Resource templates
+    - Usage tracking
+    - Monitoring and logs
+   
+
+- Mobile services
+    - IdentitySync
+    - Mobile Analytics
+    - Notification
+
+### Application
+- Virtual Desktop 
+- Collaborartion and sharing
 
 ### **Service Categories**
 
@@ -80,10 +122,11 @@ AWS Infrastructure Features:
 
 #### AWS Storage Services
 
-- [Amazon Simple Storage Services (S3)](https://aws.amazon.com/s3/) - Object storage service that offers industry-leading scalability, data availability, security, and performance.
-- [Amazon Elastic Block Storage (EBS)](https://aws.amazon.com/ebs) - An easy to use, high performance block storage service designed for use with Amazon Elastic Compute Cloud (EC2) for both throughput and transaction intensive workloads at any scale.
-- [Amazon Elastic File System (EFS)](https://aws.amazon.com/efs/) - A simple, scalable, fully managed elastic NFS file system for use with AWS Cloud services and on-premises resources. 
+- [Amazon Simple Storage Services (S3)](https://aws.amazon.com/s3/) - is an object storage service that offers scalability, data availability, security, and performance. Use it to store and protect any amount of data for websites, mobile apps, backup and restore, archive, enterprise applications, Internet of Things (IoT) devices, and big data analytics.
+- [Amazon Elastic Block Storage (EBS)](https://aws.amazon.com/ebs) - is high-performance block storage that is designed for use with Amazon EC2 for both throughput and transaction intensive workloads. It is used for a broad range of workloads, such as relational and non-relational databases, enterprise applications, containerized applications, big data analytics engines, file systems, and media workflows
+- [Amazon Elastic File System (EFS)](https://aws.amazon.com/efs/) - A simple, scalable, fully managed elastic NFS file system for use with AWS Cloud services and on-premises resources.  It is built to scale on demand to petabytes, growing and shrinking automatically as you add and remove files. It reduces the need to provision and manage capacity to accommodate growth. 
 - [Amazon Simple Storage Service Glacier](https://aws.amazon.com/glacier/) - A secure, durable, and extremely low-cost Amazon S3 cloud storage classes for data archiving and long-term backup.
+It is designed to deliver high durability, and to provide comprehensive security and compliance capabilities to meet stringent regulatory requirements.
 
 #### AWS Compute Services
 
