@@ -23,10 +23,6 @@
 
 ## Labs / Activities
 
-- [Knowledge Check](https://www.aws.training/Details/Curriculum?transcriptid=-NscDQNnt0KwQEi-zYfB8Q2&id=43078#modules)
-- [Activity: Label a Network Diagram](http://d8rg5deuq9171.cloudfront.net/handouts/Activities/Module%205%20Activity%20-%20Label%20network%20diagram.pdf)
-- [Activity: Design a VPC](http://d8rg5deuq9171.cloudfront.net/handouts/Activities/Module%205%20Activity%20-%20Design%20a%20VPC.pdf)
-- [Lab: Build Your VPC and Launch a Web Server](https://labs.vocareum.com/main/main.php) -- [Lab Instructions](https://labs.vocareum.com/main/main.php)
 
 <br/>
 
@@ -63,7 +59,7 @@ Ex- IPv6 (128-bit) address: 2600:1f18:22ba:8c00:ba86:a05e:a5ba:00FF
 ## Section 2: Amazon VPC
 
 - Enables you to provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define
-- Gives you control over your virtual networking resources, including: Selection of IP address range, creation of subnets, and configuration of route tables and network gateways
+- Gives you control over your virtual networking resources, including: Selection of **IP address** range, creation of **subnets**, and configuration of **route tables** and **network gateways**
 - Closely resembles a traditional network that you would operate in your own data center, with the benefits of using the scalable infrastructure of AWS
 - Enables you to customize the network configurationfor your VPC
 - Enables you to use multiple layers of security
@@ -84,6 +80,7 @@ Ex- IPv6 (128-bit) address: 2600:1f18:22ba:8c00:ba86:a05e:a5ba:00FF
 - Classified as public (has route to the internet) or private (no internet)
 - CIDR blocks of subnets cannot overlap
 - Each CIDR block has 5 reserved addresses for: network address, internal communication, DNS resolution, future use, and network broadcast address.
+
 
 ### **IP address**
 - When you create a VPC, you assign it to an IPv4 CIDR block (range of privateIPv4 addresses).
@@ -121,13 +118,15 @@ Elastic
 - The route table controls routing for the subnet
 - A route table contains a set of rules (or routes) that you can configure to direct network traffic from your subnet
 - Each route specifies a destination(10.0.0.0) and a target(local).
+- You can't delete local route entry. In unchangable.
 - By default, every route table contains a local route for communication within the VPC.
 - Each subnet must be associated with a single route table.(as most one)
 - A VPC has a default main route table, if a subnet is not attached to route table then this route table assigned automatically to subnet.
+- A route table can be assigned to different route table.
 
 <br/>
 
-## Section 3: VPC Networking
+## Section 3: VPC Networking (Important)
 
 ### **Internet Gateway**
 
@@ -206,7 +205,7 @@ A network transit hub that is used to interconnect virtual private clouds, on-pr
 
 The topology of a Transit Gateway is a hub and spoke which reduces the number of connections required, and the complexity to implement and maintain it.
 
-[Activity: Label a Network Diagram](http://d8rg5deuq9171.cloudfront.net/handouts/Activities/Module%205%20Activity%20-%20Label%20network%20diagram.pdf)
+
 
 <br/>
 
@@ -214,7 +213,7 @@ The topology of a Transit Gateway is a hub and spoke which reduces the number of
 
 ### **Security Groups**
 
-- Act at the instance level
+- Act at the instance level particularly network interface card.
 - Security groups have rules that control inbound and outbound instance traffic.
 - Default security groups deny all inbound traffic and allow all outbound traffic.
 - Security groups are stateful - return traffic is automatically allowed, regardless of rules
@@ -230,10 +229,9 @@ The topology of a Transit Gateway is a hub and spoke which reduces the number of
 - Customn network ACLs deny all inbound and outbound traffic until you add rules.
 - You can specify both allow and deny rules.
 - Rules are evaluated in number order, starting with the lowest number
+- Each subnet should be associated with one NACL. However one NACL can be associated with one or more subnets.
 
-[Activity: Design a VPC](http://d8rg5deuq9171.cloudfront.net/handouts/Activities/Module%205%20Activity%20-%20Design%20a%20VPC.pdf)
 
-[Lab: Build Your VPC and Launch a Web Server](https://labs.vocareum.com/main/main.php) -- [Lab Instructions](https://labs.vocareum.com/main/main.php)
 
 <br/>
 
@@ -268,6 +266,7 @@ The topology of a Transit Gateway is a hub and spoke which reduces the number of
 - Global network of edge locations and Regional edge caches
 - Self-service model
 - Pay-as-you-go pricing
+- You can define time-to-live data in the cache for data expiration.
 
 ### **CloudFront Infrastructure**
 
