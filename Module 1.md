@@ -1,6 +1,5 @@
 # Module 1 - Cloud Concepts Overview
 
-[Slides](http://d8rg5deuq9171.cloudfront.net/handouts/Slides/AcademyCloudFoundations_Module_02.pdf)
 
 ## Objectives / Topics
 
@@ -13,7 +12,6 @@
 
 ## Labs / Activities
 
-- [Knowledge Check](https://www.aws.training/Details/Curriculum?transcriptid=-NscDQNnt0KwQEi-zYfB8Q2&id=43078#modules)
 
 <br/>
 
@@ -131,5 +129,3 @@ Cloud computing can do almost anything the traditional IT can do.
 ---
 
 <br/>
-
-[Knowledge Check](https://www.aws.training/Details/Curriculum?transcriptid=-NscDQNnt0KwQEi-zYfB8Q2&id=43078#modules)
