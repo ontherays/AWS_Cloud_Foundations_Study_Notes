@@ -81,6 +81,9 @@ Ex- IPv6 (128-bit) address: 2600:1f18:22ba:8c00:ba86:a05e:a5ba:00FF
 - CIDR blocks of subnets cannot overlap
 - Each CIDR block has 5 reserved addresses for: network address, internal communication, DNS resolution, future use, and network broadcast address.
 
+  <img width="353" alt="image" src="https://github.com/user-attachments/assets/32e5c9dc-5571-4cb5-b4e9-d520ac79856f" />
+
+
 
 ### **IP address**
 - When you create a VPC, you assign it to an IPv4 CIDR block (range of privateIPv4 addresses).
