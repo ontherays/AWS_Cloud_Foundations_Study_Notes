@@ -51,7 +51,7 @@ Ex- IPv6 (128-bit) address: 2600:1f18:22ba:8c00:ba86:a05e:a5ba:00FF
 | Data Link    | 2      | Transfer data in the same LAN network (hubs and switches)            | MAC                      |
 | Physical     | 1      | Transmission and reception of raw bit streams over a physical medium | Signals (1s and 0s)      |
 
-**ICA** is Independent Computing Architecture, developed by Citrix Systems to facilitate efficient data transfer between a server and a client.AWS Training and Certification Module 5: Networking and Content Delivery © 2025, Amazon Web Services, Inc. or its affiliates. All rights reserved. 12 
+**ICA** is **Independent Computing Architecture**, developed by Citrix Systems to facilitate efficient data transfer between a server and a client.AWS Training and Certification Module 5: Networking and Content Delivery © 2025, Amazon Web Services, Inc. or its affiliates. All rights reserved. 12 
 
 
 <br/>
