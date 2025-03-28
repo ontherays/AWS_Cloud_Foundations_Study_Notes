@@ -302,5 +302,3 @@ Regional edge cache – CloudFront location that caches content that is not popu
 ---
 
 <br/>
-
-[Knowledge Check](https://www.aws.training/Details/Curriculum?transcriptid=-NscDQNnt0KwQEi-zYfB8Q2&id=43078#modules)
