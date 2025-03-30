@@ -164,6 +164,11 @@ These are the nine key decisions to make when you create an EC2 instance by usin
    - Login to EC2 requires private key.
    - For Windows AMIs – Use the private key to obtain the administrator password that you need to log in to your instance
    - For Linux AMIs – Use the private key to use SSH to securely connect to your instance
+  
+     **EC2 Instance Launch Screen**
+
+     <img width="631" alt="image" src="https://github.com/user-attachments/assets/d2850606-b604-4c05-bc2b-1ccfb9c30f23" />
+
 
 ### **Miscellaneous**
 
