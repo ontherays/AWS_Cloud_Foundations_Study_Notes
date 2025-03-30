@@ -42,8 +42,7 @@ AWS offers many compute services
 | •Amazon EC2 | •Infrastructure as a service (IaaS)•Instance-based•Virtual machines   | •Provision virtual machines that you can manage as you choose.                |  A familiar concept to many IT professionals.     |
 | •AWS Lambda | •Serverlesscomputing•Function-based •Low-cost    | •Write and deploy code that runs on a schedule or that can be triggered by events•Use when possible (architect for the cloud)         |  A relatively new concept for many IT staff members, but easy to use after you learn how.     |
 | •Amazon ECS •Amazon EKS •AWS Fargate •Amazon ECR | •Container-basedcomputing•Instance-based     | •Spin up and run jobs more quickly                |   AWS Fargate reduces administrative overhead, but you can use options that give you more control    |
-| •AWS Elastic Beanstalk | •Platform as a service (PaaS)•For web applications      | •Focus on your code (building your application)•Can easily tie into other services—databases, Domain Name System (DNS), etc.                |   Fast and easy to get started.AWS Training and Certification Module 6: Compute © 2024, Amazon Web Services, Inc. or its affiliates. All rights reserved. 9 
-    |
+| •AWS Elastic Beanstalk | •Platform as a service (PaaS)•For web applications      | •Focus on your code (building your application)•Can easily tie into other services—databases, Domain Name System (DNS), etc.                |   Fast and easy to get started.AWS Training and Certification  |
     
 
 The optimal compute service or services that you use will depend on your use case, some aspects to consider:
@@ -63,10 +62,13 @@ The optimal compute service or services that you use will depend on your use cas
 - You can launch instances of any size into an Availability Zone anywhere in the world with just a few clicks or a line of code, and they are ready in minutes
 - Resizable compute capacity
 - You can launch instances from Amazon Machine Images (AMIs)
-- You can control traffic to and from instances
+- You can control traffic to and from instances using security groups.
 - Provides tools to build failure resilient applications and isolate them from common failure scenarios
+- 
 
 ### **Launching an EC2 Instance**
+
+- First time you launch an Amazon EC2 instance, you will likely use the AWS Management Console _Launch Instance Wizard_.
 
 These are the nine key decisions to make when you create an EC2 instance by using the AWS Management Console Launch Instance Wizard.
 
@@ -78,6 +80,7 @@ These are the nine key decisions to make when you create an EC2 instance by usin
      - My AMIs – Any AMIs that you created
      - AWS Marketplace – Pre-configured templates from third parties
      - Community AMIs – AMIs shared by others; use at your own risk
+     - You can Create EC2 instance from Quick Start or My AMIs and then after configuration according to your need you can turn/capture modified EC2 instances into AMIs templet. 
 2. Select an Instance Type
    - Optimized to fit different use cases
    - The instance type that you choose determines
@@ -92,22 +95,35 @@ These are the nine key decisions to make when you create an EC2 instance by usin
      - Storage optimized
      - Accelerated computing
    - Instance types offer family, generation, and size (Example - `t3.large`: Family - `T`, Generation - `3`, Size - `large`)
+   - T3 instances provide burstable performance general purpose instances.
+   - C5 instances are optimized for compute-intensive workloads.
+   - R5instances are optimized for memory-intensive applications.
    - Networking Features
      - The network bandwidth (Gbps) varies by instance type.
      - To maximize networking and bandwidth performance of your instance type enable enhanced networking and if you have interdependent instances, launch them into a cluster placement group.
      - Enhanced networking types are supported on most instance types. Enhanced networking types:
        - Elastic Network Adapter (ENA): Supports network speeds of up to 100 Gbps.
        - Intel 82599 Virtual Function interface: Supports network speeds of up to 10 Gbps.
+       - **Network performance level** Each instance type provides a documented network performance level. For example, an a1.medium instance will provide up to 10 Gbps, but a p3dn.24xlarge instance provides up to 100 Gbps. Choose an instance type that meets your requirements.
+    
 3. Specify Network Settings
+   - The choice of Region must be made before you start the Launch Instance Wizard.
    - Where should the instance be deployed? Identify the VPC and optionally the subnet
    - Should a public IP addressbe automatically assigned?
    - You can have multiple networks, such as different ones for development, testing and production
+   - If you dont specify VPC and subnet it goes to default VPC and Public subnet with as public ip address assigned.
+   - By default, AWS will not assign a public IP address to instances that are launched in a non default subnet.
+
 4. Attach IAM Role (optional)
    - Will software on the EC2 instance need to interact with other AWS services? If yes, attach an appropriate IAM Role. IAM Roles can be attached at any time, not just launch.
+   - An instance profileis a container for an IAM role.
    - An AWS Identity and Access Management (IAM) role that is attached to an EC2 instance is kept in an instance profile.
 5. User Data Script (optional)
-   - Specify a user data script at instance launch. Use user data scripts to customize the runtime environment of your instance
-   - Script executes the first time the instance starts
+   - Specify a user data script at instance launch. Use user data scripts to customize the runtime environment of your instance.
+   - When the EC2instance is created, the user data script will run with root privileges during the final phases of the boot process.
+   - On Linux instances, it is run by the cloud-initservice. On Windows instances, it is run by the EC2Config or EC2Launch.
+   - By default, user data only runs the first time that the instance starts up.
+   - Create Multipurpose Internet Mail Extensions (MIME) multipart file user data script to run each time EC2 instance boot.
 6. Specify Storage
    - Configure the root volume
    - Attach additional storage volumes(optional). For each volume, specify:
@@ -119,25 +135,33 @@ These are the nine key decisions to make when you create an EC2 instance by usin
      - Amazon Elastic Block Store (Amazon EBS) –
        - Durable, [block-level storage](https://en.wikipedia.org/wiki/Block-level_storage) volumes.
        - You can stop the instance and start it again, and the data will still be there.
+       - increase volume size without disrupting your critical applications,
      - Amazon EC2 Instance Store
        - Storage is provided on disks that are attached to the host computer where the EC2 instance is running.
+       - This storage is located on disks that are physically attached to the host computer.
        - If the instance stops, data stored here is deleted.
+       - An instance with an Instance Store root volume cannot be stopped by an Amazon EC2 API call. It can only be terminated.
      - Other options for storage (not for the root volume)
        - Mount an Amazon Elastic File System (EFS) file system.
+            -  It is built to scale on-demand to petabytes without disrupting applications. It grows and shrinks automatically as you add and remove files
        - Connect to Amazon Simple Storage Service (S3).
+            - For a variety of use cases, such as websites, mobile apps, backup and restore, archive, enterprise applications, Internet of Things (IoT) devices, and big data analytics.
 7. Add Tags
    - Consists of a key and an optional value.
+   - Tag keys and tag values are case-sensitive.
    - Tagging is how you can attach metadata to an EC2 instance
    - Potential benefits: Filtering, automation, cost allocation, and access control.
 8. Security Group Settings
    - A security group is a set of firewall rules that control traffic to the instance
    - When you launch an instance, you associate one or more security groups with it
    - Create rules that specify the source, which ports that network communications can use and the protocol (TPC, UDP, ICMP)
+   - One must either create a new security group or use one that already exists in that VPC
    - Modify the rules for a security group at any time; the new rules are automatically applied to all instances that are associated with the security group
 9. Identify or Create the Key Pair
    - At instance launch, you specify an existing key pair or create a new key pair
    - A key pair consists of a public key that AWS stores and a private key file that you store
    - It enables secure connections to the instance
+   - Login to EC2 requires private key.
    - For Windows AMIs – Use the private key to obtain the administrator password that you need to log in to your instance
    - For Linux AMIs – Use the private key to use SSH to securely connect to your instance
 
