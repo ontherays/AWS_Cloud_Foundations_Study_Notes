@@ -273,6 +273,9 @@ Containers are a method of operating system virtualization.
 
 Docker is a software platform that enables you to build, test, and deploy applications quickly. Containers are created from a template called an image.
 
+<img width="230" alt="image" src="https://github.com/user-attachments/assets/6e264eca-b285-4bb3-bce1-dd7a71c876f4" />
+
+
 ### **Amazon Elastic Container Service (ECS)**
 
 - A highly scalable, fast, container management service
