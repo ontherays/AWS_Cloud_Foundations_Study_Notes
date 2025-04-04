@@ -164,6 +164,11 @@ These are the nine key decisions to make when you create an EC2 instance by usin
    - Login to EC2 requires private key.
    - For Windows AMIs – Use the private key to obtain the administrator password that you need to log in to your instance
    - For Linux AMIs – Use the private key to use SSH to securely connect to your instance
+  
+     **EC2 Instance Launch Screen**
+
+     <img width="631" alt="image" src="https://github.com/user-attachments/assets/d2850606-b604-4c05-bc2b-1ccfb9c30f23" />
+
 
 ### Elastic IP address
 
@@ -299,6 +304,9 @@ Its provide templete for container and act as an engine to containers.
 
 **VM vs Containers**
 - virtual machines run directly on a hypervisor, but containers can run on any Linux OS if they have the appropriate kernel feature support and the Docker daemon is present. 
+
+<img width="230" alt="image" src="https://github.com/user-attachments/assets/6e264eca-b285-4bb3-bce1-dd7a71c876f4" />
+
 
 ### **Amazon Elastic Container Service (ECS)**
 
@@ -469,3 +477,17 @@ Fast and simple to start using, Developer productivity, Difficult to outgrowComp
 
 <br/>
 
+<<<<<<< HEAD
+=======
+[Knowledge Check](https://www.aws.training/Details/Curriculum?transcriptid=-NscDQNnt0KwQEi-zYfB8Q2&id=43078#modules)
+
+[AWS Lambda Functions and Autoscaling Video](https://www.youtube.com/watch?v=CPCJAhYk2FE) --- [Walkthrough Instructions](https://docs.google.com/document/d/1K8XQhXQhNJSTlIM2FrO5pktcMRk382pjpdVmLjpSuqc/edit)
+
+[Build a Password-Protected Website with Lambda and CloudFront](https://lambdaschool.zoom.us/rec/play/65wqceygqj43TNDHswSDVKArW9S0L_-sgCdP__MPmU3mB3BQNAeuY7ARZ7NVRbyLAoLEU_duW_Sg6diU?continueMode=true&_x_zm_rtaid=36nX6fUIT0u2AWS4Hfv6Dg.1587074669552.4a38e847d19f1fd4fd48607050191196&_x_zm_rhtaid=342) --- [Accompanying Blog](https://medium.com/@austinlasseter/build-a-password-protected-website-using-aws-lambda-and-cloudfront-3743cc4d09b6)
+
+[Build, Train, and Deploy a ML Model to SageMaker](https://aws.amazon.com/getting-started/tutorials/build-train-deploy-machine-learning-model-sagemaker/) --- [Supporting Notebook](https://github.com/austinlasseter/sagemaker_tutorials/blob/master/xgboost-tutorial.ipynb)
+
+[SageMaker Technical Deep Dive Playlist](https://www.youtube.com/playlist?list=PLhr1KZpdzukcOr_6j_zmSrvYnLUtgqsZz)
+
+[Deploy a Python App with Plotly Dash and Elastic Beanstalk](https://lambdaschool.zoom.us/rec/play/usZ_c7-rpjI3GdSc4wSDV6V4W429Jv-s13Ab_fIMnkizWnQFOgevMrVGZrC3U2z3x3Ncj9i5q8e3q_IH?continueMode=true&_x_zm_rtaid=36nX6fUIT0u2AWS4Hfv6Dg.1587074669552.4a38e847d19f1fd4fd48607050191196&_x_zm_rhtaid=342) --- [Accompanying Blog](https://medium.com/@austinlasseter/deploying-a-dash-app-with-elastic-beanstalk-console-27a834ebe91d)
+>>>>>>> 9e189ff76fe0ba5dcae801d87b0ffb98e38be4f2
