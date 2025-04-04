@@ -473,21 +473,3 @@ Fast and simple to start using, Developer productivity, Difficult to outgrowComp
 
 <br/>
 
----
-
-<br/>
-
-<<<<<<< HEAD
-=======
-[Knowledge Check](https://www.aws.training/Details/Curriculum?transcriptid=-NscDQNnt0KwQEi-zYfB8Q2&id=43078#modules)
-
-[AWS Lambda Functions and Autoscaling Video](https://www.youtube.com/watch?v=CPCJAhYk2FE) --- [Walkthrough Instructions](https://docs.google.com/document/d/1K8XQhXQhNJSTlIM2FrO5pktcMRk382pjpdVmLjpSuqc/edit)
-
-[Build a Password-Protected Website with Lambda and CloudFront](https://lambdaschool.zoom.us/rec/play/65wqceygqj43TNDHswSDVKArW9S0L_-sgCdP__MPmU3mB3BQNAeuY7ARZ7NVRbyLAoLEU_duW_Sg6diU?continueMode=true&_x_zm_rtaid=36nX6fUIT0u2AWS4Hfv6Dg.1587074669552.4a38e847d19f1fd4fd48607050191196&_x_zm_rhtaid=342) --- [Accompanying Blog](https://medium.com/@austinlasseter/build-a-password-protected-website-using-aws-lambda-and-cloudfront-3743cc4d09b6)
-
-[Build, Train, and Deploy a ML Model to SageMaker](https://aws.amazon.com/getting-started/tutorials/build-train-deploy-machine-learning-model-sagemaker/) --- [Supporting Notebook](https://github.com/austinlasseter/sagemaker_tutorials/blob/master/xgboost-tutorial.ipynb)
-
-[SageMaker Technical Deep Dive Playlist](https://www.youtube.com/playlist?list=PLhr1KZpdzukcOr_6j_zmSrvYnLUtgqsZz)
-
-[Deploy a Python App with Plotly Dash and Elastic Beanstalk](https://lambdaschool.zoom.us/rec/play/usZ_c7-rpjI3GdSc4wSDV6V4W429Jv-s13Ab_fIMnkizWnQFOgevMrVGZrC3U2z3x3Ncj9i5q8e3q_IH?continueMode=true&_x_zm_rtaid=36nX6fUIT0u2AWS4Hfv6Dg.1587074669552.4a38e847d19f1fd4fd48607050191196&_x_zm_rhtaid=342) --- [Accompanying Blog](https://medium.com/@austinlasseter/deploying-a-dash-app-with-elastic-beanstalk-console-27a834ebe91d)
->>>>>>> 9e189ff76fe0ba5dcae801d87b0ffb98e38be4f2
