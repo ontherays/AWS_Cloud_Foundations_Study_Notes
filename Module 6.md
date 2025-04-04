@@ -165,15 +165,27 @@ These are the nine key decisions to make when you create an EC2 instance by usin
    - For Windows AMIs – Use the private key to obtain the administrator password that you need to log in to your instance
    - For Linux AMIs – Use the private key to use SSH to securely connect to your instance
 
-### **Miscellaneous**
+### Elastic IP address
 
-Consider using an Elastic IP Address if you require a persistent public IP address.
+- Consider using an Elastic IP Address if you require a persistent public IP address.
+- If you require a persistent public IP address, you might want to associate an Elastic IP address with the instance. 
+- first allocate a new Elastic IP address in the Region where the instance exists. After the Elastic IP address is allocated, you can associate the Elastic IP address with an EC2 instance.
+- By default, all AWS accounts are limited to five (5) Elastic IP addresses per Region.
 
-Instance metadata can be viewed in browser or a terminal window, and can be used to configure or manage a running instance
+### Instance metadata
+- Instance metadata can be viewed in browser or a terminal window, and can be used to configure or manage a running instance.
+- Can be access in browser by http://169.254.169.254/latest/meta-data/
+- Public IP address, private IP address, public hostname, instance ID, security groups, Region, Availability Zone.
+- Any user data specified at instance launch can also be accessed at: 
+http://169.254.169.254/latest/user-data/
 
-Amazon CloudWatch can be used to monitor an EC2 instance to provide near-real-time metrics, charts, and 15 months of historical data. CloudWatch has basic monitoring (no additional cost) or detailed monitoring.
+### Amazon CloudWatch
+- Amazon CloudWatch can be used to monitor an EC2 instance to provide near-real-time metrics, charts, and 15 months of historical data. CloudWatch has basic monitoring (no additional cost) 
+- By default, Amazon EC2provides basic monitoring,which sends metric data to CloudWatch in 5-minute periods.
+- detailed monitoringon the instance provide data each minute.
+- By default, Amazon CloudWatch does not provide RAM metrics for EC2 instances but can be enabled.
 
-[Lab: Introduction to Amazon EC2](https://labs.vocareum.com/main/main.php) --- [Lab Instructions](http://d8rg5deuq9171.cloudfront.net/handouts/Vocareum%20scripts/Lab%203%20-%20EC2.pdf)
+
 
 <br/>
 
@@ -200,8 +212,7 @@ Spot Instances
 - Instances run as long as they are available and your bid is above the Spot Instance price.
 - They can be interrupted by AWS with a 2-minute notification
 - Interruption options include terminated, stopped or hibernated
-- Prices can be significantly less expensive compared to On-Demand
-Instances
+- Prices can be significantly less expensive compared to On-Demand Instances
 - Good choice when you have flexibility in when your applications can run.
 
 Reserved Instances
@@ -216,6 +227,19 @@ Scheduled Reserved Instances
 - 1-year term
 
 Per second billing available for On-Demand Instances, Reserved Instances, and Spot Instances that run Amazon Linux or Ubuntu
+
+**On-Demand Instances**
+- offer the most flexibility, with no long-term contract and low rates.
+- Short-term, spiky, or unpredictable workloads, Application development or testing
+**Spot Instances** 
+- provide large scale at a significantly discounted price.
+- Applications with flexible start and end times•Applications only feasible at very low compute prices Users with urgent computing needs for large amounts of additional capacity
+**Reserved Instances** 
+- are a good choice if you have predictable or steady-state compute needs (for example, an instance that you know you want to keep running most or all of the time for months or years).
+- Steady state or predictable usage workloads•Applications that require reserved capacity, including disaster recovery•Users able to make upfrontpayments to reduce total computing costs even further.
+
+**Dedicated Hosts** are a good choice when you have licensing restrictions for the software you want to run on Amazon EC2, or when you have specific compliance or regulatory requirements that preclude you from using the other deployment options.
+- Bring your own license (BYOL) •Compliance and regulatory restrictions•Usage and licensing tracking•Control instance placement AWS Training and Certification.
 
 ### **Four Pillars of Cost Optimization**
 
@@ -251,22 +275,30 @@ Cost optimization is an ongoing process.
 - Define and enforce cost allocation tagging
 - Define metrics, set targets, and review regularly.
 - Encourage teams to architect for cost
-- Assign the responsibility of optimization to an individual or to a team
+- Assign the responsibility of optimization to an individual or to a team.
+- AWS cost explorer is a free tool that can be use to view graph of your cost. 
 
 <br/>
 
 ## Section 4: Container Services
 
 ### **Container Basics**
+ 
+- **Operating System Virtualization**: Containers allow running applications and dependencies in resource-isolated processes.  
+- **Self-Contained Packages**: They include an application’s code, configurations, and dependencies, ensuring consistency and efficiency.  
+- **Smaller than Virtual Machines**: Containers share the host OS rather than running a full OS, making them lightweight.  
+- **Fast Deployment**: Containers start within milliseconds, making them highly efficient for rapid scaling.  
+- **Environmental Consistency**: Applications run the same way across different environments.  
+- **Resource Efficiency**: Containers offer granular resource control, improving infrastructure utilization.  
+- **Portability & Agnosticism**: Containers can run seamlessly across different platforms without modifications.
 
-Containers are a method of operating system virtualization.
+**Docker Conainer**
+Its provide templete for container and act as an engine to containers.
+- Docker is a software platform that enables you to build, test, and deploy applications quickly. Containers are created from a template called an image.
+- Docker is installed on each server that will host containers, and it provides simple commands that you can use to build, start, or stop containers.
 
-- Repeatable
-- Self-contained execution environments
-- Software runs the same in different environments
-- Faster to launch and stop or terminate than virtual machines
-
-Docker is a software platform that enables you to build, test, and deploy applications quickly. Containers are created from a template called an image.
+**VM vs Containers**
+- virtual machines run directly on a hypervisor, but containers can run on any Linux OS if they have the appropriate kernel feature support and the Docker daemon is present. 
 
 ### **Amazon Elastic Container Service (ECS)**
 
@@ -281,12 +313,42 @@ Docker is a software platform that enables you to build, test, and deploy applic
   - Amazon EBS volumes
   - IAM roles
 
+**Essential Amazon ECS features include the ability to:** 
+- Launch up to tens of thousands of Docker containers in seconds
+- Monitor container deployment
+- Manage the state of the cluster that runs the containers
+- Schedule containers by using a built-in scheduler or a third-party scheduler (for example, Apache Mesosor Blox)
+
+### Amazon ECS orchestrates containers
+- **Task Definition:** A blueprint (text file) that describes the containers (up to 10) that make up your application.
+- Specifies parameters like:
+    - Containers to use
+    - Ports to open
+    - Data volumes for containers
+- **Task:** An instantiation of a task definition in a cluster. You can define how many tasks will run in the cluster.
+- **Amazon ECS Task Scheduler:** Responsible for placing tasks in the cluster.
+- **Cluster:** A collection of EC2 instances running an ECS container agent (when using EC2 launch type)
+- Amazon ECS provides multiple scheduling strategies that will place containers across your clusters based on your resource needs (for example, CPU or RAM) and availability requir
+
+
+**EC2 Launch Type:**
+- Choose between On-Demand Instances or Spot Instances for the EC2 instances in the cluster.
+- You must specify the same details as when launching a standalone EC2 instance.
+- Provides more control over infrastructure since you manage the EC2 instances in the cluster.
+- Amazon ECS tracks CPU, memory, and other resources in the cluster and places containers on the best server based on resource needs.
+
+**AWS Fargate Launch Type (Networking-only):**
+
+- AWS manages the cluster for you.
+- You only need to package your application in containers and define CPU, memory, networking, and IAM policies.
+- No need to provision, configure, or scale the cluster.
+- Simplifies management by removing the need to choose server types or scale the cluster, allowing you to focus on building your application.
+
 Do you want to manage the Amazon ECS cluster that runs the containers?
 
 - If yes, create an Amazon ECS cluster backed by Amazon EC2 (provides more granular control over infrastructure)
-- If no, create an Amazon ECS cluster backed by AWS Fargate (easier to maintain, focus on your applications)
+- If no, create an Amazon ECS cluster backed by **AWS Fargate** (easier to maintain, focus on your applications)
 
-Amazon Elastic Container Registry (ECR) is a fully managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images.
 
 ### **Amazon Elastic Kubernetes Service (EKS)**
 
@@ -297,7 +359,8 @@ What is Kubernetes?
   - The same toolset can be used on premises and in the cloud
 - Complements Docker
   - Docker enables you to run multiple containers on a single OS host
-  - Kubernetes orchestrates multiple Docker hosts (nodes)
+  - Kubernetes orchestrates multiple Docker hosts **(nodes)**.
+  - Containersare run in logical groupings called **pods**
 - Automates container provisioning, networking, load distribution and scaling
 
 Amazon Elastic Kubernetes Service (Amazon EKS)
@@ -308,20 +371,72 @@ Amazon Elastic Kubernetes Service (Amazon EKS)
 - Compatible with Kubernetes community tools and supports popular Kubernetes add-ons
 - Use Amazon EKS to manage clusters of Amazon EC2 compute instances and run containers that are orchestrated by Kubernetes on those instances
 
+### Amazon Elastic Container Registry (ECR):
+- Fully managed Docker container registry for storing, managing, and deploying Docker container images.
+- Integrated with Amazon ECS, allowing you to store and manage container images for ECS applications.
+- Specify the ECR repository in your ECS task definition for image retrieval.
+
+**Compatibility:**
+
+- Supports Docker Registry HTTP API version 2 which Allows interaction with Amazon ECR using Docker CLI commands or preferred Docker tools.
+- Works with any Docker environment (cloud, on-premises, or local machine).
+
+**Security:**
+- Container images are encrypted at rest using Amazon S3 server-side encryption.
+- Images can be transferred to and from Amazon ECS via HTTPS.
+
+- Amazon ECR images can also be used with Amazon EKS.
+- Amazon ECS integrationDocker support Team collaborationAccess controlThird-party integrations
+
+
 <br/>
 
 ## Section 5: Introduction to AWS Lambda
 
-- Serverless computing enables you to build and run applications and services without provisioning or managing servers.
+- Event-drive, Serverless computing enables you to build and run applications and services without provisioning or managing servers.
+- **Lambda function**, which is the AWS resource that contains the code that you upload.
 - Supports multiple programming languages.
 - Provides built-in fault tolerance and automatic scaling.
+- It supports the orchestration of multiple functions.  define workflows **Step Functions**.
 - An event source is an AWS service or developer-created application that triggers a Lambda function to run.
 - Pay-per-use pricing
-- The maximum memory allocation for a single Lambda function is 3,008 MB.
-- The maximum execution time for a Lambda function is 15 minutes
-- Deployment package size = 250 MB unzipped, including layers
 
-[Lab: AWS Lambda](https://labs.vocareum.com/main/main.php) --- [Lab Instructions](http://d8rg5deuq9171.cloudfront.net/handouts/Vocareum%20scripts/Lab%20X%20-%20Lambda.pdf)
+### AWS Lambda event sources
+- Event Sources: AWS services or developer apps that produce events to trigger Lambda functions.
+- Asynchronous Invocation: Services like Amazon S3, SNS, and CloudWatch Events invoke Lambda functions asynchronously.
+- Polling: Lambda can pull records from services like SQS and DynamoDB to trigger functions.
+- Direct Invocation: Lambda functions can be invoked directly via the Lambda console, API, SDK, CLI, or toolkits.
+
+### AWS Lambda function configuration
+- **Lambda Function**:
+  - Custom code written to process events. AWS Lambda runs the function on your behalf.
+- **Creating a Lambda Function**:
+  - **Step 1**: Give the function a name.
+  - **Step 2**: Specify:
+    - **Runtime environment** (e.g., Python or Node.js).
+    - **Execution role** (IAM permission for interacting with other AWS services).
+  
+- **Configuring the Function**:
+  - **Add a trigger**: Choose an event source.
+  - **Add function code**: Use the code editor or upload a file.
+  - **Specify memory**: Between 128 MB to 10,240 MB.
+  - **Optional settings**:
+    - Environment variables, description, timeout.
+    - Virtual Private Cloud (VPC) configuration.
+    - Tags and other configurations.
+
+All of the above settings end up in a Lambda deployment package which is a ZIP archive
+
+
+Soft limits per Region:
+- Concurrent executions = 1,000
+- Function and layer storage = 75 GB
+Hard limits for individual functions:
+- Maximum function memory allocation = 10,240 MB
+- Function timeout = 15 minutes•Deployment package size = 250 MB unzipped, including layers
+- Container image code package size = 10 GB
+
+
 
 <br/>
 
@@ -339,8 +454,14 @@ Amazon Elastic Kubernetes Service (Amazon EKS)
 - No additional charge for Elastic Beanstalk, pay only for the underlying resources that are used
 - It supports web applications written for common platforms
 - You upload your code and Elastic Beanstalk automatically handles the deployment
+- At the same time, you retain full control over the AWS resources that power your application, and you can access the underlying resources at any time.
 
-[Lab: AWS Elastic Beanstalk](https://labs.vocareum.com/main/main.php) --- [Lab Instructions](http://d8rg5deuq9171.cloudfront.net/handouts/Vocareum%20scripts/Lab%20X%20-%20Beanstalk.pdf)
+### AWS Elastic Beanstalk deployments
+1. **Deployment Options**: Elastic Beanstalk allows code deployment via the AWS Management Console, AWS CLI, Visual Studio, and Eclipse.
+2. **Supported Platforms**: It supports a wide range of platforms, including Docker, Java, .NET, Node.js, PHP, Python, Ruby, and Go.
+3. **Automatic Deployment**: Elastic Beanstalk automatically handles deployment on various servers like Apache, NGINX, IIS, and more, while you manage the code.
+Fast and simple to start using, Developer productivity, Difficult to outgrowComplete resource control, AWS Training and Certification.
+
 
 <br/>
 
@@ -348,14 +469,3 @@ Amazon Elastic Kubernetes Service (Amazon EKS)
 
 <br/>
 
-[Knowledge Check](https://www.aws.training/Details/Curriculum?transcriptid=-NscDQNnt0KwQEi-zYfB8Q2&id=43078#modules)
-
-[AWS Lambda Functions and Autoscaling Video](https://www.youtube.com/watch?v=CPCJAhYk2FE) --- [Walkthrough Instructions](https://docs.google.com/document/d/1K8XQhXQhNJSTlIM2FrO5pktcMRk382pjpdVmLjpSuqc/edit)
-
-[Build a Password-Protected Website with Lambda and CloudFront](https://lambdaschool.zoom.us/rec/play/65wqceygqj43TNDHswSDVKArW9S0L_-sgCdP__MPmU3mB3BQNAeuY7ARZ7NVRbyLAoLEU_duW_Sg6diU?continueMode=true&_x_zm_rtaid=36nX6fUIT0u2AWS4Hfv6Dg.1587074669552.4a38e847d19f1fd4fd48607050191196&_x_zm_rhtaid=342) --- [Accompanying Blog](https://medium.com/@austinlasseter/build-a-password-protected-website-using-aws-lambda-and-cloudfront-3743cc4d09b6)
-
-[Build, Train, and Deploy a ML Model to SageMaker](https://aws.amazon.com/getting-started/tutorials/build-train-deploy-machine-learning-model-sagemaker/) --- [Supporting Notebook](https://github.com/austinlasseter/sagemaker_tutorials/blob/master/xgboost-tutorial.ipynb)
-
-[SageMaker Technical Deep Dive Playlist](https://www.youtube.com/playlist?list=PLhr1KZpdzukcOr_6j_zmSrvYnLUtgqsZz)
-
-[Deploy a Python App with Plotly Dash and Elastic Beanstalk](https://lambdaschool.zoom.us/rec/play/usZ_c7-rpjI3GdSc4wSDV6V4W429Jv-s13Ab_fIMnkizWnQFOgevMrVGZrC3U2z3x3Ncj9i5q8e3q_IH?continueMode=true&_x_zm_rtaid=36nX6fUIT0u2AWS4Hfv6Dg.1587074669552.4a38e847d19f1fd4fd48607050191196&_x_zm_rhtaid=342) --- [Accompanying Blog](https://medium.com/@austinlasseter/deploying-a-dash-app-with-elastic-beanstalk-console-27a834ebe91d)
