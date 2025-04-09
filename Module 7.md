@@ -1,5 +1,9 @@
 # Module 7 - Storage
 
+## AWS Core Sevices
+
+<img width="726" alt="image" src="https://github.com/user-attachments/assets/5b863b15-b70a-4a5b-b1cf-0ac9ed7d2d26" />
+
 
 ## Objectives / Topics
 
