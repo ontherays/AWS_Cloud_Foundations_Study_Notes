@@ -12,16 +12,10 @@
 - Explain Amazon Aurora
 - Perform tasks in an RDS database, such as launching, configuring, and interacting
 
-<br/>
-
-## Labs / Activities
-
-<br/>
-
-
 1. **Unmanaged services** like Amazon EC2 give users full control over configuration and behavior, but require manual setup for scaling, fault-tolerance, and handling errors or load changes—offering flexibility at the cost of more management.
 
 2. **Managed services** like Amazon S3 simplify operations by automatically handling aspects like scaling and availability, requiring minimal configuration from the user, though offering less fine-tuned control.
+
 ## Section 1: Amazon Relational Database Service (RDS)
 
 Amazon Relational Database Service (Amazon RDS) makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while automating time-consuming administration tasks such as hardware provisioning, database setup, patching and backups. RDS provides you with six familiar database engines to choose from: Amazon Aurora, Oracle, Microsoft SQL Server, PostgreSQL, MySQL and MariaDB.
