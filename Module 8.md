@@ -125,9 +125,6 @@ Multiple factors influence the cost of RDS
 9. **Deployment Type** – Storage and I/O charges vary based on single-AZ or multi-AZ deployment.
 10. **Outbound Data Transfer** – Tiered charges apply for data transferred out of RDS.
 
----
-
-Let me know if you want this in a table or visual format too!
 
 <br/>
 
@@ -138,6 +135,7 @@ Let me know if you want this in a table or visual format too!
 - Flexible Data Structure: You can store different types of items (e.g., products, users, orders) in one table without needing a fixed schema.
 - Virtually unlimited storage
 - Items can have differing attributes
+- Data stored in solid state drive(SSD)
 - Low-latency queries
 - Scalable read/write throughput with no limits
 - Supports document and key-value store models.
@@ -166,7 +164,9 @@ Tables, items, and attributes are the core DynamoDB components.
 - Automatically and continuously monitors cluster
 - Encryption is built in
 - Amazon Redshift supports standard SQL.
+- Also provide high performance java database connectivity/open database connectivity.
 - Softwareasaservice(SaaS)
+- Use case- Enterprise data warehouse, Big data centers.
 ---
 ### Leader Node:
 1. Communicates with client applications.
@@ -192,7 +192,6 @@ Tables, items, and attributes are the core DynamoDB components.
 - It also automates time-consuming tasks such as provisioning, patching, backup, recovery, failure detection, and repair.
 - Pay as you go.
 - It’s a managed service that integrates with features such as AWSDatabase Migration Service (AWS DMS)and the AWS Schema Conversion Tool.
-Here’s the summary in two points:
 
 1. **Faster Recovery**: Amazon Aurora reduces restart time after a crash (usually under 60 seconds) by avoiding redo log replay during recovery and instead performing it on individual read operations.
 
