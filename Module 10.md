@@ -1,4 +1,4 @@
-# Module 9 - Automatic Scaling and Monitoring
+# Module 10 - Automatic Scaling and Monitoring
 
 ## Objective/Topics
 
