@@ -111,6 +111,9 @@ Create alarms based on
 
 **Auto Scaling group** is a collection of EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management.
 
+<img width="667" alt="image" src="https://github.com/user-attachments/assets/892e7eef-b165-401b-9599-af290a8b06c2" />
+
+
 Auto Scalling group size can me categorized as
 - Minimum Size
 - Desired Capacity
