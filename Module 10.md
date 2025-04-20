@@ -34,6 +34,8 @@
 - With Classic Load Balancers, you register instances with the load balancer.
 
 **A listener** is a process that checks for connection requests. It is configured with a protocol and port number for connections from clients to the load balancer. 
+ - It is configured with a protocol and port number for connections from clients to the load balancer. 
+ - Similarly, it is configured with a protocol and port number for connections from the load balancer to the targets. 
 
 ### Elastic load Balacing use cases
 
@@ -109,5 +111,41 @@ Create alarms based on
 
 **Auto Scaling group** is a collection of EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management.
 
+Auto Scalling group size can me categorized as
+- Minimum Size
+- Desired Capacity
+- Maximum Size
 
+### How Amazon EC2 Auto Scaling works
+1- What
+    - Launch Configuration
+    - AMI
+    - Instance Type
+    - IAM Roles
+    - Security Groups
+    - EBS Volumes
+
+2- Where
+    - Auto Scaling Groups
+    - VPC and Subnet
+    - Load Balancer
+
+3- When
+    - Maintain current number
+        - Helath Check
+    - Manual Scaling
+        - Min,Max and desird Capacity
+    - Scheduled Scalling
+    - Dynamic Scalling
+    - Predictive auto Scaling
+        - AWS auto Scaling
+
+### AWS Auto Scaling
+
+- Monitors your applications and automatically adjusts capacity to maintain steady, predictable performance at the lowest possible cost.
+- Provides a simple, powerful user interface that enables you to build scaling plans for resources, including.
+- Amazon EC2 instances and Spot Fleets•Amazon Elastic Container Service (Amazon ECS) Tasks.
+- Amazon DynamoDB tables and indexes•Amazon Aurora Replicas.
+
+<br/>
 
