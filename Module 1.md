@@ -10,11 +10,6 @@
 
 <br/>
 
-## Labs / Activities
-
-
-<br/>
-
 ## Section 1: Intro to Cloud Computing
 
 **Cloud Computing:** The on-demand delivery of compute power, database, storage, applications, and other IT resources via the internet with pay-as-you-go pricing. Cloud computing enables you to stop thinking of infrastructure as hardware, and instead think of (and use) it as software.
